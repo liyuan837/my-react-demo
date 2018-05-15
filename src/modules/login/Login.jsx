@@ -37,7 +37,7 @@ class Login extends React.Component {
                 });
 
                 if (values.userName === 'admin' && values.password === 'admin'){
-                    this.props.history.push('/app/demo1/test')
+                    this.props.history.push('/')
                 };
                 if (values.userName === 'guest' && values.password === 'guest') fetchData({funcName: 'guest', stateName: 'auth'});
             }

@@ -67,6 +67,11 @@ class HeaderCustom extends Component {
         localStorage.removeItem('user');
         this.props.history.push('/login')
     };
+
+    personinfo = () => {
+        this.props.history.push('/personinfo')
+    };
+
     popoverHide = () => {
         this.setState({
             visible: false,
@@ -108,7 +113,7 @@ class HeaderCustom extends Component {
                     <SubMenu title={<span className="avatar"><img src={avater} alt="头像" /><i className="on bottom b-white" /></span>}>
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {this.props.user.userName}</Menu.Item>
-                            <Menu.Item key="setting:2">个人信息</Menu.Item>
+                            <Menu.Item key="setting:2"><span onClick={this.personinfo}>个人信息</span></Menu.Item>
                             <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">

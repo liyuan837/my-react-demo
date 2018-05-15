@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 // import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Demo1 from '../modules/demo1';
+import Personinfo from '../modules/personcenter/Personinfo';
+import Personsetting from '../modules/personcenter/Personsetting';
 
 import BasicForm from '../components/forms/BasicForm';
 import BasicTable from '../components/tables/BasicTables';
@@ -49,6 +51,8 @@ export default class CRouter extends Component {
         return (
             <Switch>
                 <Route exact path="/app/demo1/test" component = {Demo1} />
+                <Route exact path="/app/person/personinfo" component = {Personinfo} />
+                <Route exact path="/app/person/personsetting" component = {Personsetting} />
 
                 {/* 以下为脚手架的案例demo */}
                 <Route exact path="/app/dashboard/index" component={Dashboard} />
