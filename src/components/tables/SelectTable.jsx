@@ -16,7 +16,7 @@ const columns = [{
 }];
 
 const data = [];
-for (let i = 0; i < 46; i++) {
+for (let i = 0; i < 10; i++) {
     data.push({
         key: i,
         name: `Edward King ${i}`,
@@ -32,6 +32,16 @@ class SelectTable extends React.Component {
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
+    };
+
+    /*翻页事件*/
+    onShowSizeChange(current, pageSize){
+        console.log(current + "==" +pageSize)
+    };
+
+    /*分页事件*/
+    onChange(current){
+        console.log(current)
     };
     render() {
         const { selectedRowKeys } = this.state;
@@ -67,8 +77,17 @@ class SelectTable extends React.Component {
             }],
             onSelection: this.onSelection,
         };
+
+        const pagination = {
+            total: 46,/*这里是所有的数据*/
+            showSizeChanger: true,
+            //把下面这两个函数变为对象，这样它们的函数里就了this再bind this就没问题了
+            onShowSizeChange:this.onShowSizeChange.bind(this),
+            onChange:this.onChange.bind(this)
+        }
+
         return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+            <Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={pagination}/>
         );
     }
 }

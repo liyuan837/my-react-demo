@@ -1,12 +1,12 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchData, receiveData } from '@/action';
+import {Button, Checkbox, Form, Icon, Input} from 'antd';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchData, receiveData} from '@/action';
 
-import axios from'axios'
-import {message} from "antd/lib/index";
+import axios from 'axios'
+
 const FormItem = Form.Item;
 
 class Login extends React.Component {
@@ -30,14 +30,20 @@ class Login extends React.Component {
                 console.log('Received values of form: ', values);
                 const { fetchData } = this.props;
 
-                axios.post("http://localhost:8081/demo/login", null, null).then(res => {
-                    console.log(res.data);
-                }).catch(err => {
-                    console.log(err);
-                });
 
                 if (values.userName === 'admin' && values.password === 'admin'){
-                    this.props.history.push('/')
+
+                    axios.post("http://localhost:8081/demo/login", null, null).then(res => {
+                        console.log(res.data);
+                        fetchData({
+                            funcName:'admin',
+                            stateName:'auth'
+                        })
+                        this.props.history.push('/')
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
                 };
                 if (values.userName === 'guest' && values.password === 'guest') fetchData({funcName: 'guest', stateName: 'auth'});
             }

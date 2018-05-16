@@ -1,16 +1,16 @@
 export const menus = [
-    { key: '/app/index', title: '首页', icon: '',
+    { key: '/app/index', title: '首页', icon: 'home',
         sub: [
-            { key: '/app/demo1/test', title: 'demo1', icon: ''}
+            { key: '/app/index/index', title: '首页', icon: ''}
         ]
-    }, 
-    { key: '/app/fff', title: '=====分隔符=====', icon: '', 
-        sub: [
-            { key: '/app/animation/basicAnimations', title: '基础动画', icon: '', },
-            { key: '/app/animation/exampleAnimations', title: '动画案例', icon: '', },
-        ],
     },
-    { key: '/app/dashboard/index', title: '首页', icon: 'mobile', },
+    { key: '/app/user', title: '用户管理', icon: 'user',
+        sub: [
+            { key: '/app/user/list', title: '用户列表', icon: ''},
+            { key: '/app/user/add', title: '用户添加', icon: ''}
+        ]
+    },
+    { key: '/', title: '=====分隔符=====', icon: ''},
     {
         key: '/app/ui', title: 'UI', icon: 'scan',
         sub: [

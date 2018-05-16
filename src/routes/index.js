@@ -4,9 +4,16 @@
 import React, { Component } from 'react';
 // import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 import { Route, Redirect, Switch } from 'react-router-dom';
+
+//我自己的组件
 import Demo1 from '../modules/demo1';
 import Personinfo from '../modules/personcenter/Personinfo';
 import Personsetting from '../modules/personcenter/Personsetting';
+import Index from '../modules/index/index';
+
+//用户管理
+import UserList from '../modules/user/UserList';
+import UserAdd from '../modules/user/UserAdd';
 
 import BasicForm from '../components/forms/BasicForm';
 import BasicTable from '../components/tables/BasicTables';
@@ -22,7 +29,6 @@ import Notifications from '../components/ui/Notifications';
 import Tabs from '../components/ui/Tabs';
 import Banners from '../components/ui/banners';
 import Drags from '../components/ui/Draggable';
-import Dashboard from '../components/dashboard/Dashboard';
 import Gallery from '../components/ui/Gallery';
 import BasicAnimations from '../components/animation/BasicAnimations';
 import ExampleAnimations from '../components/animation/ExampleAnimations';
@@ -50,12 +56,18 @@ export default class CRouter extends Component {
     render() {
         return (
             <Switch>
+                <Route exact path="/app/index/index" component={Index} />
+
                 <Route exact path="/app/demo1/test" component = {Demo1} />
                 <Route exact path="/app/person/personinfo" component = {Personinfo} />
                 <Route exact path="/app/person/personsetting" component = {Personsetting} />
 
+                <Route exact path="/app/user/list" component = {UserList} />
+                <Route exact path="/app/user/add" component = {UserAdd} />
+
                 {/* 以下为脚手架的案例demo */}
-                <Route exact path="/app/dashboard/index" component={Dashboard} />
+
+
                 <Route exact path="/app/form/basicForm" component={BasicForm} />
                 <Route exact path="/app/table/basicTable" component={BasicTable} />
                 <Route exact path="/app/table/advancedTable" component={AdvancedTable} />

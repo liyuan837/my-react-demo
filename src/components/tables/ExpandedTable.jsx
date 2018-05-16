@@ -8,7 +8,7 @@ const columns = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Age', dataIndex: 'age', key: 'age' },
     { title: 'Address', dataIndex: 'address', key: 'address' },
-    { title: 'Action', dataIndex: '', key: 'x', render: () => <a>Delete</a> },
+    { title: 'Action', dataIndex: '', key: 'x', render: () => <div></div> },
 ];
 
 const data = [

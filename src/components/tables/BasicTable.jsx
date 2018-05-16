@@ -51,7 +51,8 @@ const data = [{
 }];
 
 const BasicTable = () => (
-    <Table columns={columns} dataSource={data} />
+
+        <Table columns={columns} dataSource={data} style={{'background':'white'}}/>
 );
 
 export default BasicTable;
